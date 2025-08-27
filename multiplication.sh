@@ -3,7 +3,7 @@
 ## Contributor kàrdakis <kardakis@proton.me>
 
 errors=0
-num=10 ## I changed the number of questions to 10
+num=10
 question_str="prodotto"
 random_range=100
 result=-1
