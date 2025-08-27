@@ -1,9 +1,10 @@
 #!/bin/bash
 # Author Lubos Rendek <web@linuxconfig.org>
+## Contributor kàrdakis <kardakis@proton.me>
 
 errors=0
-num=20
-question_str="product"
+num=10 ## I changed the number of questions to 10
+question_str="prodotto"
 random_range=100
 result=-1
 start=$SECONDS
@@ -77,7 +78,7 @@ function print_question {
 
     echo "################################"
     printf "\033[0;36mWhat is the $question_str of $question ?\e[0m\n"
-    echo -n "Your answer: "
+    echo -n "Rispondi qui: "
 }
 
 # A core function to ask a question and compare response with a valid result.
@@ -98,13 +99,13 @@ while [ $response -ne $result ]; do
     
 
     if [ $response -eq $result ]; then
-        printf "\033[1;32mCorrect !!!\e[0m\n"
+        printf "\033[1;32mCorretto!\e[0m\n"
         num=$[$num-1]
-        printf "\033[0;33mRemaining questions: $num \e[0m\n"
+        printf "\033[0;33mDomande rimanenti: $num \e[0m\n"
     else
-        printf "\033[1;31mWrong answer, try again !!!\e[0m\n"
+        printf "\033[1;31mRisposta sbagliata, riprova!\e[0m\n"
         errors=$[$errors+1]
-        printf "\033[0;33mRemaining questions: $num \e[0m\n"
+        printf "\033[0;33mDomande rimanenti: $num \e[0m\n"
     fi
     
 done
@@ -123,4 +124,4 @@ m="$(( (SECONDS - start) / 60))"
 sl="$(((SECONDS - start) % 60))"                                                                                                                                                                                                              
 minutes=$(printf %02d $m)                                                                                                                                                                                                                     
 seconds=$(printf %02d $sl)                                                                                                                                                                                                                    
-echo "You answered $start_num questions in $minutes:$seconds with $errors incorrect answers."     
+echo "Hai risposto a $start_num domande in $minutes:$seconds con $errors risposte sbagliate."
